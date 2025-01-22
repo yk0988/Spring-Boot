@@ -29,7 +29,7 @@ public class QItem extends EntityPathBase<Item> {
 
     public final NumberPath<Integer> price = createNumber("price", Integer.class);
 
-    public final DateTimePath<java.time.LocalDateTime> regTiem = createDateTime("regTiem", java.time.LocalDateTime.class);
+    public final DateTimePath<java.time.LocalDateTime> regTime = createDateTime("regTime", java.time.LocalDateTime.class);
 
     public final NumberPath<Integer> stockNumber = createNumber("stockNumber", Integer.class);
 
