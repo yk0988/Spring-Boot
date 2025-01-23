@@ -38,6 +38,9 @@ dependencies {
 
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:3.3.0'
 
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+
+
 	// querydsl 라이브러리 추가
 	implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
 	annotationProcessor "com.querydsl:querydsl-apt:5.0.0:jakarta"

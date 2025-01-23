@@ -2,37 +2,51 @@ server:
   port: 80
 
 spring:
+  security:
+    user:
+      name: test
+      password: 12345  # 보안을 고려하여 실제 환경에서는 강력한 비밀번호 사용 권장
+
   devtools:
     livereload:
-      enabled: true
+      enabled: true  # 개발 환경에서만 활성화 (프로덕션에서는 비활성화 추천)
+
+  restart:
+    enabled: true  # 개발 환경에서만 활성화 (프로덕션에서는 비활성화 추천)
+
   main:
-    banner-mode: "off"
+    banner-mode: "off"  # 애플리케이션 배너를 비활성화
+
   application:
-    name: shop
+    name: shop  # 애플리케이션 이름 설정
+
   thymeleaf:
-    cache: false
+    cache: false  # 개발 환경에서만 비활성화 (프로덕션에서는 true로 설정 추천)
     prefix: classpath:/templates/
     suffix: .html
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/webdb
-    username: dbuser
-    password: 12345
+    url: jdbc:mysql://localhost:3306/webdb  # DB URL
+    username: dbuser  # 데이터베이스 사용자명
+    password: 12345  # 데이터베이스 비밀번호
+    # 실제 운영 환경에서는 DB 비밀번호와 사용자명을 안전하게 관리해야 합니다.
+
   jpa:
     properties:
       hibernate:
-        format_sql: true
-    show-sql: true
+        format_sql: true  # SQL 쿼리 포맷을 보기 좋게 출력
+    show-sql: true  # SQL 로그 출력
     hibernate:
-      ddl-auto: update
+      ddl-auto: update  # 개발 환경에서는 update를 사용할 수 있지만 프로덕션에서는 'validate'나 'none'을 추천
 
 logging:
   level:
     org:
-      thymeleaf: DEBUG
+      thymeleaf: DEBUG  # Thymeleaf 관련 디버깅 로그
       hibernate:
-        SQL: INFO
+        SQL: INFO  # SQL 로그 레벨 (실제 운영에서는 'ERROR'나 'WARN'으로 설정 권장)
         type:
           descriptor:
             sql:
-              BasicBinder: TRACE
+              BasicBinder: TRACE  # SQL 바인딩 로그 레벨 (프로덕션에서는 'WARN'이나 'ERROR'로 설정)
